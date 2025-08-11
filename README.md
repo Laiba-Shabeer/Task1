@@ -1,61 +1,73 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 📚 Bookstore API (Laravel)
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Project Overview
+This project is a RESTful API built with Laravel that allows CRUD operations on books.  
+You can create, read, update, and delete books with properties like title, author, price, ISBN, and published date.
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Technologies Used
+- PHP 8.x  
+- Laravel Framework 10+  
+- MySQL Database  
+- Composer  
+- Postman (for API testing)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+---
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## How to Run Locally
 
-## Learning Laravel
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/Laiba-Shabeer/Task1.git
+   cd bookstore-api
+2. **Install Dependencies:**
+   composer install
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+3. **Edit .env and update DB settings:**
+   DB_DATABASE=bookstore
+   DB_USERNAME=root
+   DB_PASSWORD=your_password
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+4. **Generate app key:**
+   php artisan key:generate
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+5. **Run migrations:**
+    php artisan migrate
 
-## Laravel Sponsors
+6. **Start the development server:**
+    php artisan serve
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+7. **Open your browser and visit:**
+    http://127.0.0.1:8000
 
-### Premium Partners
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
 
-## Contributing
+## API Endpoints
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-## Code of Conduct
+    | Method | Endpoint          | Description       | Sample JSON Input (POST/PUT)                                                                                               |
+| ------ | ----------------- | ----------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| POST   | `/api/books`      | Create a new book | `{ "title": "Atomic Habits", "author": "James Clear", "price": 20, "isbn": "1234567890", "published_date": "2018-10-16" }` |
+| GET    | `/api/books`      | Get all books     | N/A                                                                                                                        |
+| GET    | `/api/books/{id}` | Get a book by ID  | N/A                                                                                                                        |
+| PUT    | `/api/books/{id}` | Update a book     | `{ "title": "Updated Title", "price": 25 }`                                                                                |
+| DELETE | `/api/books/{id}` | Delete a book     | N/A                                                                                                                        |
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-## Security Vulnerabilities
+## Testing the API with Postman
+1.Open Postman.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+2.Use the appropriate HTTP method and URL, e.g., POST http://127.0.0.1:8000/api/books.
 
-## License
+3.For POST and PUT requests:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+4.Select Body > raw > JSON.
+
+5.Paste the JSON sample shown above.
+
+6.Click Send to test the request.
+
+7.Review the JSON response.
+
+
